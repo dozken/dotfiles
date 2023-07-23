@@ -18,11 +18,11 @@
 #     $1 is the path to the new environment:  ~/git/lvim.traap
 
 setLunarVimEnvironment() {
-  echo "Lunar configuration is $1"
-  removeDirIfPresent ~/.config/lvim
-  removeDirIfPresent ~/.local/share/lunarvim/site
-  ln -fsv "$1" ~/.config/lvim
-  recordLunarVimInUse "$1"
+	echo "Lunar configuration is $1"
+	removeDirIfPresent ~/.config/lvim
+	removeDirIfPresent ~/.local/share/lunarvim/site
+	ln -fsv "$1" ~/.config/lvim
+	recordLunarVimInUse "$1"
 }
 
 # -------------------------------------------------------------------------- }}}
@@ -30,115 +30,108 @@ setLunarVimEnvironment() {
 #     $1 is the path to the new environment:  ~/git/nvim.traap
 
 setNeovimEnvironment() {
-  echo "Neovim configuration is $1"
-  removeNeovimConfiguration
-  ln -fsv "$1" ~/.config/nvim
-  removePackageTrackingFiles
-  recordNeovimInUse "$1"
+	echo "Neovim configuration is $1"
+	removeNeovimConfiguration
+	ln -fsv "$1" ~/.config/nvim
+	removePackageTrackingFiles
+	recordNeovimInUse "$1"
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Recursively remove directory if present.
 
 removeDirIfPresent() {
-  if [[ -d "$1" ]]; then
-    echo "Removed $1"
-    rm -rf "$1"
-  fi
+	if [[ -d "$1" ]]; then
+		echo "Removed $1"
+		rm -rf "$1"
+	fi
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Remove Neovim Configuration
 
 removeNeovimConfiguration() {
-  removeDirIfPresent ~/.cache/nvim
-  removeDirIfPresent ~/.config/nvim
-  removeDirIfPresent ~/.local/share/nvim
-  removeDirIfPresent ~/.local/state/nvim
+	removeDirIfPresent ~/.cache/nvim
+	removeDirIfPresent ~/.config/nvim
+	removeDirIfPresent ~/.local/share/nvim
+	removeDirIfPresent ~/.local/state/nvim
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Remove package Tracking Files
 
 removePackageTrackingFiles() {
-  rm -rfv ~/.config/nvim/lazy-lock.json
-  rm -rfv ~/.config/nvim/package-lock.json
-  rm -rfv ~/.config/nvim/plugin
+	rm -rfv ~/.config/nvim/lazy-lock.json
+	rm -rfv ~/.config/nvim/package-lock.json
+	rm -rfv ~/.config/nvim/plugin
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Record LunarVim in use.
 
 recordLunarVimInUse() {
-  echo "$1" > ~/.lunarvim_in_use_okay_to_delete
-  use_neovim=0
+	echo "$1" >~/.lunarvim_in_use_okay_to_delete
+	use_neovim=0
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Record Neovim in use.
 
 recordNeovimInUse() {
-  echo "$1" > ~/.neovim_in_use_okay_to_delete
-  use_neovim=1
+	echo "$1" >~/.neovim_in_use_okay_to_delete
+	use_neovim=1
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Default Neovim environment is in use.
 
 defaultNeovimEnvironment() {
-  echo 'Neovim without plugins.'
-  removeNeovimConfiguration
-  recordNeovimInUse '.config/nvim'
+	echo 'Neovim without plugins.'
+	removeNeovimConfiguration
+	recordNeovimInUse '.config/nvim'
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Show Neovim Configurations
 
 showNeovimConfigurations() {
-  echo "Neovim configurations are: "
-  echo "  switchNeovim [default|folke|prime|tj|traap|vapour|whiskey|xray|yankee|zulu]"
+	echo "Neovim configurations are: "
+	echo "  switchNeovim [default|folke|prime|tj|traap|vapour|whiskey|xray|yankee|zulu]"
 }
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Validate argument.
 
 if [[ $# -eq 0 ]]; then
-  showNeovimConfigurations
-  exit 0
+	showNeovimConfigurations
+	exit 0
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Choose the Neovim environment to set.
 
 else
-  case $1 in
-      folke) setNeovimEnvironment     ~/git/lazy.starter ;;
-      prime) setNeovimEnvironment     ~/git/nvim.prime ;;
-         tj) setNeovimEnvironment     ~/git/nvim.kickstart ;;
-      traap) setNeovimEnvironment     ~/git/nvim.traap ;;
-     vapour) setNeovimEnvironment     ~/git/nvim.vapour ;;
-       zulu) setNeovimEnvironment     ~/git/nvim.zulu ;;
-     nvchad) setLunarVimEnvironment   ~/git/nvim.nvchad ;;
+	case $1 in
+	folke) setNeovimEnvironment ~/git/lazy.starter ;;
+	prime) setNeovimEnvironment ~/git/nvim.prime ;;
+	tj) setNeovimEnvironment ~/git/nvim.kickstart ;;
+	dozken) setNeovimEnvironment ~/lazyvim ;;
 
-    whiskey) setLunarVimEnvironment   ~/git/lvim.default ;;
-       xray) setLunarVimEnvironment   ~/git/lvim.cc ;;
-     yankee) setLunarVimEnvironment   ~/git/lvim.traap ;;
-
-    default) defaultNeovimEnvironment ~/.config/nvim ;;
-    *)
-      echo "WARN: $1 is not supported."
-      showNeovimConfigurations
-      exit 0
-     ;;
-  esac
+	default) defaultNeovimEnvironment ~/.config/nvim ;;
+	*)
+		echo "WARN: $1 is not supported."
+		showNeovimConfigurations
+		exit 0
+		;;
+	esac
 fi
 
 # -------------------------------------------------------------------------- }}}
 # {{{ Launch LunarVim or Neovim
 
 if [[ $use_neovim == 1 ]]; then
-  nvim
+	nvim
 else
-  lvim
+	lvim
 fi
 
 # -------------------------------------------------------------------------- }}}
