@@ -7,7 +7,7 @@ git() {
 
 		# Check if .npmrc exists and copy it to the new worktree directory
 		if [ -f .npmrc ]; then
-			ln -sv .npmrc "$3/.npmrc"
+			cp .npmrc "$3/.npmrc"
 		fi
 
 		# Check if .env exists and copy it to the new worktree directory
