@@ -118,7 +118,7 @@ alias ls="exa -al --icons"
 alias cat="bat"
 
 function run_tmux_sessionizer() {
-    BUFFER='tmux new ~/.config/scripts/tmux-sessionizer'
+    BUFFER='tmux new ~/.dotfiles/scripts/tmux-sessionizer'
     zle accept-line
 }
 zle -N run_tmux_sessionizer
@@ -139,6 +139,7 @@ esac
 # pnpm end
 
 #git-worktree copy .env & .npmrc
-source ~/.config/scripts/git-worktree
+# move to nvim plugin to hook on worktree 
+source ~/.dotfiles/scripts/git-worktree
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
