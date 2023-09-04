@@ -47,6 +47,7 @@ cd ~/.dotfiles && brew bundle
 
 ## TODO List
 
+- use GNU stow to support easy of configuration
 - Learn how to use [`defaults`](https://macos-defaults.com/#%F0%9F%99%8B-what-s-a-defaults-command) to record and restore System Preferences and other macOS configurations.
 - Organize these growing steps into multiple script files.
 - Automate symlinking and run script files with a bootstrapping tool like [Dotbot](https://github.com/anishathalye/dotbot).
