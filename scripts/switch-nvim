@@ -115,7 +115,7 @@ else
 	folke) setNeovimEnvironment ~/personal/LazyVim ;;
 	prime) setNeovimEnvironment ~/personal/init.lua ;;
 	tj) setNeovimEnvironment ~/personal/kickstart.nvim ;;
-	dozken) setNeovimEnvironment ~/personal/dozken.nvim ;;
+	dozken) setNeovimEnvironment ~/.dotfiles/nvim ;;
 
 	lunar) setLunarVimEnvironment ~/personal/LunarVim ;;
 	default) defaultNeovimEnvironment ~/.config/nvim ;;
