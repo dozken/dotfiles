@@ -1,7 +1,5 @@
-# PROMPT = '%1 %# '
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# zmodload zsh/zprof
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -20,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="apple" # set by `omz`
 # ZSH_THEME="robbyrussell"
 
 
@@ -84,13 +82,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -116,6 +117,8 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias ls="exa -al --icons"
 alias cat="bat"
+alias air='~/go/bin/air'
+alias grep="rg"
 
 function run_tmux_sessionizer() {
     BUFFER='tmux new ~/.dotfiles/scripts/tmux-sessionizer'
@@ -140,6 +143,23 @@ esac
 
 #git-worktree copy .env & .npmrc
 # move to nvim plugin to hook on worktree 
-source ~/.dotfiles/scripts/git-worktree
+# source ~/.dotfiles/scripts/git-worktree
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="$PATH:/Users/dozh/.bun/bin"
+
+
+# Load Angular CLI autocompletion.
+# source <(ng completion script)
+# export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+
+# fnm
+# export PATH="/Users/dozh/Library/Application Support/fnm:$PATH"
+# eval "`fnm env`"
+
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# zprof

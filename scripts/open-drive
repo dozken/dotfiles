@@ -1,9 +1,11 @@
+#!/usr/bin/env bash
+
 # sudo umount /Volumes/Transcend
 # sudo mkdir /Volumes/disk2s1
 # sudo mount -t ntfs -o rw,auto,nobrowse /dev/disk2s1 /Volumes/disk2s1
 # open /Volumes/disk2s1
 
-sudo diskutil unmount /dev/disk2s2
+sudo diskutil unmount /dev/disk2s1
 sudo mkdir /Volumes/NTFSDrive
 sudo /usr/local/sbin/mount_ntfs /dev/disk2s1 /Volumes/NTFSDrive
 open /Volumes/NTFSDrive

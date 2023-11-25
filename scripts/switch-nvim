@@ -111,16 +111,16 @@ if [[ $# -eq 0 ]]; then
 
 else
 	case $1 in
-	lazy) setNeovimEnvironment ~/personal/lazy.starter ;;
-	folke) setNeovimEnvironment ~/personal/LazyVim ;;
-	prime) setNeovimEnvironment ~/personal/init.lua ;;
-	tj) setNeovimEnvironment ~/personal/kickstart.nvim ;;
-  dozken) setNeovimEnvironment ~/personal/dozken.nvim ;;
-	dotfiles) setNeovimEnvironment ~/.dotfiles/nvim ;;
+		lazy) setNeovimEnvironment ~/personal/lazy.starter ;;
+		folke) setNeovimEnvironment ~/personal/LazyVim ;;
+		prime) setNeovimEnvironment ~/personal/init.lua ;;
+		kickstart) setNeovimEnvironment ~/personal/kickstart.nvim ;;
+		tj) setNeovimEnvironment ~/personal/tj.nvim ;;
+		dozken) setNeovimEnvironment ~/personal/dozken.nvim ;;
+		dotfiles) setNeovimEnvironment ~/.dotfiles/nvim ;;
 
-	lunar) setLunarVimEnvironment ~/personal/LunarVim ;;
-	default) defaultNeovimEnvironment ~/.config/nvim ;;
-	*)
+		default) defaultNeovimEnvironment ~/.config/nvim ;;
+		*)
 		echo "WARN: $1 is not supported."
 		showNeovimConfigurations
 		exit 0
