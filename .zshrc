@@ -155,8 +155,8 @@ export PATH="$PATH:/Users/dozh/.bun/bin"
 
 
 # fnm
-# export PATH="/Users/dozh/Library/Application Support/fnm:$PATH"
-# eval "`fnm env`"
+export PATH="/Users/dozh/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
 
 # export NVM_DIR="$HOME/.nvm"
 #   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
