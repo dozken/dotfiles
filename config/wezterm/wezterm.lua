@@ -10,17 +10,19 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- This is where you actually apply your config choices
 
--- For example, changing the color scheme:
--- config.color_scheme = 'AdventureTime'
+local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+custom.background = "#000000"
+config.color_schemes = {
+  ["OLEDppuccin"] = custom,
+}
+config.color_scheme = "OLEDppuccin"
 
--- and finally, return the configuration to wezterm
 config.window_decorations = 'RESIZE'
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 16
 config.window_background_opacity = 0.9
-config.macos_window_background_blur = 60
+config.macos_window_background_blur = 10
 config.native_macos_fullscreen_mode = true
 
 return config
