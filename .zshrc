@@ -18,8 +18,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="apple" # set by `omz`
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="apple" # set by `omz`
+ZSH_THEME="robbyrussell"
+typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='🍀'
 
 
 # Set list of themes to pick from when loading at random
@@ -118,7 +119,7 @@ alias vim="nvim"
 alias ls="exa -al --icons"
 alias cat="bat"
 alias air='~/go/bin/air'
-alias grep="rg"
+# alias grep="rg"
 
 function run_tmux_sessionizer() {
     BUFFER='tmux new ~/.dotfiles/scripts/tmux-sessionizer'
