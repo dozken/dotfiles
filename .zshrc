@@ -165,3 +165,6 @@ eval "`fnm env`"
 # zprof
 #
 # export PATH="/Users/dozh/projects/thymeleaf_ls/target/debug:$PATH"
+
+# opam configuration
+[[ ! -r /Users/dozh/.opam/opam-init/init.zsh ]] || source /Users/dozh/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
