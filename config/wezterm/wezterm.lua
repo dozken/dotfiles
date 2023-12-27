@@ -12,7 +12,7 @@ end
 
 
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom.background = "#000000"
+-- custom.background = "#000000"
 config.color_schemes = {
     ["OLEDppuccin"] = custom,
 }
@@ -25,17 +25,23 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 10
 config.native_macos_fullscreen_mode = true
 
--- local act = wezterm.action
--- config.keys = {
---     -- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
---     {
---         key = '1',
---         mods = 'CMD',
---         action = act.SendKey {
---             key = 'a',
---             mods = 'CTRL',
---         },
---     },
--- }
+local act = wezterm.action
+config.keys = {}
+for i = 1, 9 do
+    local keyEntry = {
+        key = tostring(i),
+        mods = 'CMD',
+        action = act.Multiple {
+            act.SendKey { key = 'a', mods = 'CTRL' },
+            act.SendKey { key = tostring(i) },
+        },
+        when = {
+            app = "tmux",
+        },
+    }
+    table.insert(config.keys, keyEntry)
+end
+
 
 return config
+
