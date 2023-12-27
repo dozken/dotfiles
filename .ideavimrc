@@ -1,0 +1,95 @@
+"" Base Settings
+"" ========================================================
+set scrolloff=10
+set linenumber
+set relativenumber number
+set showmode
+set showcmd
+
+set smartcase
+set incsearch
+set hlsearch
+
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed
+
+let mapleader = " "
+
+
+"" Plugin Settings
+"" ========================================================
+"set surround
+set highlightedyank
+"set notimeout
+set commentary
+"set argtextobj
+"set easymotion
+"set textobj-entire
+"set ReplaceWithRegister
+"set exchange
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+" Vim remappings
+inoremap jk <Esc>
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
+map Q gq
+
+noremap K m '<-2<CR>gv=gv
+vnoremap J m '>+1<CR>gv=gv
+
+" Clipboard operations
+vmap <leader>y "+y
+vmap <leader>Y "+Y
+nmap <leader>d "_d
+nmap <leader>P "+p
+xmap <leader>p "_dP
+
+" Pop-up menu selection
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+" IDE-specific mappings (IntelliJ IDEA with IdeaVim)
+map <leader>l <Action>(IdeaVim.ReloadVimRc.reload)
+
+" Window management
+map <C-w>q <action>(CloseContent)
+
+" LSP
+map gr <Action>(FindUsages)
+map gi <Action>(GotoImplementation)
+
+" Refactorings
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Telescope
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>sg <Action>(FindInPath)
+
+" Harpoon
+map <leader>ha <Action>(AddToHarpoon)
+map <leader>hu <Action>(ShowHarpoon)
+map <C-e> <Action>(ShowHarpoon)
+map <A-h> <Action>(GotoHarpoon1)
+map <A-j> <Action>(GotoHarpoon2)
+map <A-k> <Action>(GotoHarpoon3)
+map <A-l> <Action>(GotoHarpoon4)
+
+" Zen mode
+map <leader>zz <action>(ToggleDistractionFreeMode)
+
+" Debug
+map <leader>b <Action>(ToggleLineBreakpoint)
