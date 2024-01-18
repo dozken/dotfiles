@@ -18,8 +18,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="apple" # set by `omz`
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="apple" # set by `omz`
+ZSH_THEME="robbyrussell"
 
 
 # Set list of themes to pick from when loading at random
@@ -131,7 +131,7 @@ bindkey '^f' run_tmux_sessionizer
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # pnpm
 # export PNPM_HOME="/Users/dozh/Library/pnpm"

@@ -4,7 +4,7 @@
 # sudo mkdir /Volumes/disk2s1
 # sudo mount -t ntfs -o rw,auto,nobrowse /dev/disk2s1 /Volumes/disk2s1
 # open /Volumes/disk2s1
-disk="disk5s1"
+disk="disk2s1"
 
 sudo diskutil unmount /dev/$disk
 sudo mkdir /Volumes/NTFSDrive

@@ -67,6 +67,10 @@ map gr <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 
 " Refactorings
+map <leader>f <Action>(ReformatCode)
+nmap <leader>i <Action>(OptimizeImports)
+
+
 map <leader>rn <Action>(RenameElement)
 map <leader>rm <Action>(ExtractMethod)
 map <leader>rv <Action>(IntroduceVariable)
