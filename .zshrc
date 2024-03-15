@@ -19,7 +19,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="apple" # set by `omz`
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="wezm+" # set by `omz`
 
 
 # Set list of themes to pick from when loading at random
@@ -168,3 +169,7 @@ eval "`fnm env`"
 
 # opam configuration
 [[ ! -r /Users/dozh/.opam/opam-init/init.zsh ]] || source /Users/dozh/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
